@@ -14,7 +14,7 @@ from PyQt5.QtWidgets import QTableWidgetItem
 class Ui_MenuModify(object):
     def __init__(self):
         self.dish_map = { }
-        filePath = r"C:\Users\Asus\Documents\Restaurant\Menu\Menu.txt"
+        filePath = r"Menu\Menu.txt"
         f = open(filePath, "r")
         for x in f:
             temp = x.split(":")
@@ -97,7 +97,7 @@ class Ui_MenuModify(object):
             row += 1
 
     def update_in_file(self,new_dict):
-        file_path = r"C:\Users\Asus\Documents\Restaurant\Menu\Menu.txt"
+        file_path = r"Menu\Menu.txt"
         f = open(file_path, "w")
         for key,value in new_dict.items():
             f.write(f"{key}:" +str(value)+"\n")
@@ -105,14 +105,14 @@ class Ui_MenuModify(object):
 
     def add_func(self):
         if self.name_dish.text() is not None:
-            new_dish = self.name_dish.text()
+            new_dish = self.name_dish.text().capitalize()
             self.dish_map[new_dish] = int(self.priceEdit.text())
             self.update_in_file(self.dish_map)
             self.update_in_gui(self.dish_map)
 
     def del_func(self):
         if self.name_dish_del.text() is not None:
-            dish_need_remove = self.name_dish_del.text()
+            dish_need_remove = self.name_dish_del.text().capitalize()
             if dish_need_remove in self.dish_map:
                 del self.dish_map[dish_need_remove]
                 self.tableWidget.setRowCount(len(self.dish_map) + 1)

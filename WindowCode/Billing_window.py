@@ -113,7 +113,7 @@ class Ui_BillWindow(object):  # billing
         QtCore.QMetaObject.connectSlotsByName(BillWindow)
 
     def save_feed_back(self):
-        save_path1 = r'C:\Users\Asus\Documents\Restaurant\FeedBack'
+        save_path1 = r'FeedBack'
         file_name = f"Table number {self.tableInput.text()} {self.order1.get_id()}"
 
         completename1 = os.path.join(save_path1, file_name + ".txt")
@@ -124,7 +124,7 @@ class Ui_BillWindow(object):  # billing
 
     def sendNotice(self):
         self.notice.setText("Complete!!!")
-        save_path2 = r'C:\Users\Asus\Documents\Restaurant\RecordBill'
+        save_path2 = r'RecordBill'
         file_name = f"Table number {self.tableInput.text()} {self.order1.get_id()}"
 
         completename2 = os.path.join(save_path2, file_name + ".txt")

@@ -1,0 +1,2 @@
+cd
+py started.py

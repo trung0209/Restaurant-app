@@ -1,0 +1,4 @@
+Sangyetang:1:9000
+Seafood Pancake:23:230000
+Spicy Chicken Soup:4:8000
+Spicy Octopus Fried:5:95000

@@ -1,4 +1,4 @@
-Sangyetang:9000
+Sangyetang:1000
 Seafood Pancake:10000
 Spicy Chicken Soup:2000
 Spicy Octopus Fried:19000
@@ -9,5 +9,4 @@ Fried Chicken:11000
 Rice:600
 Soda Drinks:2000
 Bibimbap Bulgogi:8000
-Soda:500
 Kimchi:500

@@ -14,7 +14,7 @@ from PyQt5.QtWidgets import QTableWidgetItem
 class Ui_ModifyTable(object):
     def __init__(self):
         table_map = { }
-        filePath = r"C:\Users\Asus\Documents\Restaurant\TableFile\TableDetail.txt"
+        filePath = r"TableFile\TableDetail.txt"
         f = open(filePath, "r")
         for x in f:
             temp = x.split(":")
@@ -101,7 +101,7 @@ class Ui_ModifyTable(object):
                 self.update_in_gui_after_del(self.tableDetail)
 
     def update_in_file(self,new_dict):
-        filePath = r"C:\Users\Asus\Documents\Restaurant\TableFile\TableDetail.txt"
+        filePath = r"TableFile\TableDetail.txt"
         f = open(filePath, "w")
         for key,value in new_dict.items():
             f.write(f"{key}:" +str(value)+"\n")

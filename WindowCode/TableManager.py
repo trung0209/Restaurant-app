@@ -8,6 +8,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtCore import QRect
 from PyQt5.QtWidgets import QTableWidgetItem, QPushButton
 
 from WindowCode import ManagerWindow
@@ -16,7 +17,7 @@ from WindowCode import ManagerWindow
 class Ui_TableManger(object):
     def __init__(self):
         table_map = {}
-        filePath = r"C:\Users\Asus\Documents\Restaurant\TableFile\TableDetail.txt"
+        filePath = r"TableFile\TableDetail.txt"
         f = open(filePath, "r")
         for x in f:
             temp = x.split(":")
@@ -26,12 +27,12 @@ class Ui_TableManger(object):
 
     def setupUi(self, TableManger):
         TableManger.setObjectName("TableManger")
-        TableManger.resize(990, 656)
+        TableManger.resize(1267, 607)
         self.centralwidget = QtWidgets.QWidget(TableManger)
         self.centralwidget.setObjectName("centralwidget")
         self.tableList = QtWidgets.QTableWidget(self.centralwidget)
-        self.tableList.setGeometry(QtCore.QRect(10, 10, 961, 581))
-        self.tableList.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.AdjustToContentsOnFirstShow)
+        self.tableList.setGeometry(QtCore.QRect(10, 10, 1241, 453))
+        self.tableList.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.AdjustToContents)
         self.tableList.setRowCount(5)
         self.tableList.setColumnCount(7)
         self.tableList.setObjectName("tableList")
@@ -40,18 +41,20 @@ class Ui_TableManger(object):
         font.setPointSize(6)
         item.setFont(font)
         self.tableList.setItem(0, 3, item)
+        self.tableList.horizontalHeader().setVisible(True)
         self.tableList.horizontalHeader().setCascadingSectionResizes(True)
         self.tableList.horizontalHeader().setDefaultSectionSize(134)
-        self.tableList.horizontalHeader().setStretchLastSection(False)
+        self.tableList.horizontalHeader().setStretchLastSection(True)
         self.tableList.verticalHeader().setCascadingSectionResizes(True)
+        self.tableList.verticalHeader().setDefaultSectionSize(40)
         self.tableList.verticalHeader().setStretchLastSection(False)
-        self.returnButton = QtWidgets.QPushButton(self.centralwidget)
-        self.returnButton.setGeometry(QtCore.QRect(840, 600, 111, 31))
-        self.returnButton.setObjectName("returnButton")
+        self.returnButton = QPushButton(self.centralwidget)
+        self.returnButton.setObjectName(u"returnButton")
+        self.returnButton.setGeometry(QtCore.QRect(1110, 510, 81, 41))
         TableManger.setCentralWidget(self.centralwidget)
 
         self.tableList.setRowCount(len(self.tableDetail))
-        self.tableList.setHorizontalHeaderLabels(["Table Number", "Number of seats", "Status", "Detail", "Check Button", "Uncheck Button", "Reservation"])
+        self.tableList.setHorizontalHeaderLabels(["Table Number", "Number of seats", "Status","Check Button", "Uncheck Button", "Reservation","Detail"])
 
         row = 0
         for key, value in self.tableDetail.items():
@@ -72,9 +75,9 @@ class Ui_TableManger(object):
             self.uncheck_btn.clicked.connect(lambda: self.un_check())
             self.reserve_btn.clicked.connect(lambda: self.reservation())
 
-            self.tableList.setCellWidget(row, 4, self.check_btn)
-            self.tableList.setCellWidget(row, 5, self.uncheck_btn)
-            self.tableList.setCellWidget(row, 6, self.reserve_btn)
+            self.tableList.setCellWidget(row, 3, self.check_btn)
+            self.tableList.setCellWidget(row, 4, self.uncheck_btn)
+            self.tableList.setCellWidget(row, 5, self.reserve_btn)
             row += 1
 
         self.returnButton.clicked.connect(lambda: self.exit())
@@ -98,7 +101,9 @@ class Ui_TableManger(object):
             status = self.tableList.item(index.row(),2)
             if status.text() != "Uncheck":
                 check_status = QTableWidgetItem("Uncheck")
+                emty = QTableWidgetItem("")
                 self.tableList.setItem(index.row(),2,check_status)
+                self.tableList.setItem(index.row(),6,emty)
 
     def reservation(self):
         button = QtWidgets.qApp.focusWidget()
@@ -111,6 +116,7 @@ class Ui_TableManger(object):
             elif status.text() == "Reservation":
                 check_status = QTableWidgetItem("Uncheck")
                 self.tableList.setItem(index.row(), 2, check_status)
+                self.tableList.setItem(index.row(), 6, QTableWidgetItem(""))
 
     def exit(self):
         self.window = QtWidgets.QMainWindow()

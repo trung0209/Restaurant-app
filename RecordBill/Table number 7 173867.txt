@@ -1,0 +1,4 @@
+Seafood Pancake:1:10000
+Sangyetang:23:207000
+Spicy Octopus Fried:4:76000
+Tteokbokki:5:35000
