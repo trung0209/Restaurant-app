@@ -23,5 +23,3 @@ class Order_list():
 
     def get_id(self):
         return self.id
-
-
