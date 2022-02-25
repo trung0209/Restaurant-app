@@ -127,13 +127,3 @@ class Ui_MenuModify(object):
         self.pushButton.setText(_translate("MenuModify", "Add Dish"))
         self.lineEdit_3.setText(_translate("MenuModify", "Dish name:"))
         self.pushButton_2.setText(_translate("MenuModify", "Delete Dish"))
-
-
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    MenuModify = QtWidgets.QMainWindow()
-    ui = Ui_MenuModify()
-    ui.setupUi(MenuModify)
-    MenuModify.show()
-    sys.exit(app.exec_())

@@ -128,7 +128,6 @@ class Ui_ModifyTable(object):
             self.tableList.setItem(row, 1, number_of_seats)
             row += 1
 
-
     def retranslateUi(self, ModifyTable):
         _translate = QtCore.QCoreApplication.translate
         ModifyTable.setWindowTitle(_translate("ModifyTable", "ModifyTable"))
@@ -140,13 +139,3 @@ class Ui_ModifyTable(object):
         self.deleteTable.setText(_translate("ModifyTable", "Delete Table"))
         self.SeatsText.setText(_translate("ModifyTable", "Number of seats"))
         self.TableName.setText(_translate("ModifyTable", "Table number"))
-
-
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    ModifyTable = QtWidgets.QMainWindow()
-    ui = Ui_ModifyTable()
-    ui.setupUi(ModifyTable)
-    ModifyTable.show()
-    sys.exit(app.exec_())

@@ -131,13 +131,3 @@ class Ui_TableManger(object):
         self.tableList.setSortingEnabled(False)
         self.tableList.setSortingEnabled(__sortingEnabled)
         self.returnButton.setText(_translate("TableManger", "Back"))
-
-
-# if __name__ == "__main__":
-#     import sys
-#     app = QtWidgets.QApplication(sys.argv)
-#     TableManger = QtWidgets.QMainWindow()
-#     ui = Ui_TableManger()
-#     ui.setupUi(TableManger)
-#     TableManger.show()
-#     sys.exit(app.exec_())

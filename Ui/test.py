@@ -76,13 +76,3 @@ class Ui_menu(object):
         self.Billing.setText(_translate("menu", "Billing"))
         self.Id_name.setText(_translate("menu", "ID:"))
         self.pushButton.setText(_translate("menu", "Clear Order"))
-
-
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    menu = QtWidgets.QMainWindow()
-    ui = Ui_menu()
-    ui.setupUi(menu)
-    menu.show()
-    sys.exit(app.exec_())
