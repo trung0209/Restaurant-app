@@ -1,5 +1,5 @@
 import os
-from qtpy import QtGui
+from PyQt5 import QtGui
 import Started
 
 from PyQt5 import QtCore, QtWidgets

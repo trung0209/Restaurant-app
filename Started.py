@@ -9,7 +9,6 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from WindowCode import Order_window, ManagerWindow
 
-
 class Ui_MainWindow(object):
     def openCustomerWindow(self):
         self.window = QtWidgets.QMainWindow()
@@ -49,9 +48,9 @@ class Ui_MainWindow(object):
         self.statusbar.setObjectName("statusbar")
         MainWindow.setStatusBar(self.statusbar)
 
-        self.customerButton.clicked.connect(lambda: self.openCustomerWindow())
+        self.customerButton.clicked.connect(self.openCustomerWindow)
         self.customerButton.clicked.connect(lambda: MainWindow.close())
-        self.manageButton.clicked.connect(lambda: self.openManagerWindow())
+        self.manageButton.clicked.connect(self.openManagerWindow)
         self.manageButton.clicked.connect(lambda: MainWindow.close())
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
